@@ -20,5 +20,5 @@ After writing the backup file it is copied to the S3 bucket and removed from the
   The AWS access key id to use.
 - AWS_SECRET_ACCESS_KEY_FILE
   Path to the secrets file that holds the access key secret. Defaults to "/run/secrets/aws_secret_access_key".
-- AWS_REGION
+- AWS_DEFAULT_REGION
   AWS region of the S3 bucket. Defaults to "eu-west-1".
