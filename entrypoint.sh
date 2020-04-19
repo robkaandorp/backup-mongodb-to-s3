@@ -5,7 +5,7 @@ echo Creating backup file: ${backup_file}
 
 mongodump --host ${MONGO_HOST} --db ${MONGO_DB} --archive=${backup_file} --gzip
 
-AWS_SECRET_ACCESS_KEY=`cat ${AWS_SECRET_ACCESS_KEY_FILE}`
+export AWS_SECRET_ACCESS_KEY=`cat ${AWS_SECRET_ACCESS_KEY_FILE}`
 
 echo Copying to S3 bucket: ${S3_BUCKET}
 aws s3 cp ${backup_file} ${S3_BUCKET}
