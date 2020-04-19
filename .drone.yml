@@ -1,0 +1,21 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_hub_user
+    password:
+      from_secret: docker_hub_access_token
+    repo: robkaandorp/docker-backup-mongodb-to-s3
+    tags:
+      - latest
+      - ${DRONE_COMMIT_BRANCH}-${DRONE_BUILD_NUMBER}
+
+trigger:
+  branch:
+  - master
